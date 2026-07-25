@@ -1,0 +1,42 @@
+image,kind,pull_s,size_mb,toolkit_cuda,t1_smi,t2_libs,t3_nvcc_default,t4_nvcc_sm86,t5_ptx_jit,t6_torch,t7_tf,detail
+nvidia/cuda:12.4.1-devel-ubuntu22.04,cuda-devel,219,4112,12.4,ok,ok,ok,ok,ok,,,
+nvidia/cuda:11.0.3-devel-ubuntu20.04,cuda-devel,139,2620,11.0,ok,ok,ok,other,ok,,,
+nvidia/cuda:11.2.2-devel-ubuntu20.04,cuda-devel,152,2679,11.2,ok,ok,ok,ok,ok,,,
+nvidia/cuda:11.4.3-devel-ubuntu20.04,cuda-devel,191,3421,11.4,ok,ok,ok,ok,ok,,,
+nvidia/cuda:11.6.2-devel-ubuntu20.04,cuda-devel,178,3098,11.6,ok,ok,ok,ok,ok,,,
+nvidia/cuda:11.8.0-devel-ubuntu22.04,cuda-devel,230,3930,11.8,ok,ok,ok,ok,ok,,,
+nvidia/cuda:12.0.1-devel-ubuntu22.04,cuda-devel,211,3758,12.0,ok,ok,ok,ok,ok,,,
+nvidia/cuda:12.1.1-devel-ubuntu22.04,cuda-devel,203,3967,12.1,ok,ok,ok,ok,ok,,,
+nvidia/cuda:12.2.2-devel-ubuntu22.04,cuda-devel,239,3892,12.2,ok,ok,ok,ok,ok,,,
+nvidia/cuda:12.3.2-devel-ubuntu22.04,cuda-devel,253,3948,12.3,ok,ok,ok,ok,ok,,,
+nvidia/cuda:12.5.1-devel-ubuntu22.04,cuda-devel,267,3945,12.5,ok,ok,ok,ok,ok,,,
+nvidia/cuda:12.6.3-devel-ubuntu24.04,cuda-devel,282,4083,,other,other,other,other,other,,,
+nvidia/cuda:12.8.1-devel-ubuntu24.04,cuda-devel,524,5162,,other,other,other,other,other,,,
+nvidia/cuda:12.9.1-devel-ubuntu24.04,cuda-devel,501,5678,,other,other,other,other,other,,,
+nvidia/cuda:13.0.1-devel-ubuntu24.04,cuda-devel,334,3949,,other,other,other,other,other,,,
+pytorch/pytorch:1.8.1-cuda11.1-cudnn8-runtime,torch,325,3564,,ok,ok,,,,ok,,"{""torch"": ""1.8.1"", ""cuda"": ""11.1"", ""avail"": true, ""cudnn"": 8005, ""dev"": ""NVIDIA GeForce RTX 3050 Ti Laptop GPU"", ""cap"": ""8.6"", ""matmul"": 33620376.0}"
+pytorch/pytorch:1.11.0-cuda11.3-cudnn8-runtime,torch,274,2778,,ok,ok,,,,ok,,"{""torch"": ""1.11.0"", ""cuda"": ""11.3"", ""avail"": true, ""cudnn"": 8200, ""dev"": ""NVIDIA GeForce RTX 3050 Ti Laptop GPU"", ""cap"": ""8.6"", ""matmul"": 33582648.0}"
+pytorch/pytorch:1.13.1-cuda11.6-cudnn8-runtime,torch,536,5286,11.6,ok,ok,,,,ok,,"{""torch"": ""1.13.1"", ""cuda"": ""11.6"", ""avail"": true, ""cudnn"": 8302, ""dev"": ""NVIDIA GeForce RTX 3050 Ti Laptop GPU"", ""cap"": ""8.6"", ""matmul"": 33492148.0}"
+pytorch/pytorch:2.0.1-cuda11.7-cudnn8-runtime,torch,77,3149,,ok,ok,,,,ok,,"{""torch"": ""2.0.1"", ""cuda"": ""11.7"", ""avail"": true, ""cudnn"": 8500, ""dev"": ""NVIDIA GeForce RTX 3050 Ti Laptop GPU"", ""cap"": ""8.6"", ""matmul"": 33568208.0}"
+pytorch/pytorch:2.1.2-cuda12.1-cudnn8-runtime,torch,288,3484,,ok,ok,,,,ok,,"{""torch"": ""2.1.2"", ""cuda"": ""12.1"", ""avail"": true, ""cudnn"": 8902, ""dev"": ""NVIDIA GeForce RTX 3050 Ti Laptop GPU"", ""cap"": ""8.6"", ""matmul"": 33662272.0}"
+pytorch/pytorch:2.3.1-cuda12.1-cudnn8-runtime,torch,311,3724,,ok,ok,,,,ok,,"{""torch"": ""2.3.1"", ""cuda"": ""12.1"", ""avail"": true, ""cudnn"": 8902, ""dev"": ""NVIDIA GeForce RTX 3050 Ti Laptop GPU"", ""cap"": ""8.6"", ""matmul"": 33545262.0}"
+pytorch/pytorch:2.4.1-cuda12.4-cudnn9-runtime,torch,281,3214,,ok,ok,,,,ok,,"{""torch"": ""2.4.1+cu124"", ""cuda"": ""12.4"", ""avail"": true, ""cudnn"": 90100, ""dev"": ""NVIDIA GeForce RTX 3050 Ti Laptop GPU"", ""cap"": ""8.6"", ""matmul"": 33575784.0}"
+pytorch/pytorch:2.5.1-cuda12.4-cudnn9-runtime,torch,271,3338,,ok,ok,,,,ok,,"{""torch"": ""2.5.1+cu124"", ""cuda"": ""12.4"", ""avail"": true, ""cudnn"": 90100, ""dev"": ""NVIDIA GeForce RTX 3050 Ti Laptop GPU"", ""cap"": ""8.6"", ""matmul"": 33518948.0}"
+pytorch/pytorch:2.6.0-cuda12.6-cudnn9-runtime,torch,275,3274,,ok,ok,,,,ok,,"{""torch"": ""2.6.0+cu126"", ""cuda"": ""12.6"", ""avail"": true, ""cudnn"": 90501, ""dev"": ""NVIDIA GeForce RTX 3050 Ti Laptop GPU"", ""cap"": ""8.6"", ""matmul"": 33510444.0}"
+pytorch/pytorch:2.7.1-cuda12.8-cudnn9-runtime,torch,94,4222,,ok,ok,,,,ok,,"{""torch"": ""2.7.1+cu128"", ""cuda"": ""12.8"", ""avail"": true, ""cudnn"": 90701, ""dev"": ""NVIDIA GeForce RTX 3050 Ti Laptop GPU"", ""cap"": ""8.6"", ""matmul"": 33596432.0}"
+tensorflow/tensorflow:2.4.4-gpu,tf,1,,,other,,,,,,,
+tensorflow/tensorflow:2.9.3-gpu,tf,248,2795,11.2,ok,ok,,,,,ok,"{""tf"": ""2.9.3"", ""gpus"": [""/physical_device:GPU:0""], ""matmul"": 33558444.0}"
+tensorflow/tensorflow:2.12.0-gpu,tf,273,3376,11.8,ok,ok,,,,,ok,"{""tf"": ""2.12.0"", ""gpus"": [""/physical_device:GPU:0""], ""matmul"": 33630248.0}"
+tensorflow/tensorflow:2.15.0-gpu,tf,315,3698,12.3,ok,ok,,,,,ok,"{""tf"": ""2.15.0"", ""gpus"": [""/physical_device:GPU:0""], ""matmul"": 33535948.0}"
+tensorflow/tensorflow:2.16.1-gpu,tf,336,3818,12.3,ok,ok,,,,,ok,"{""tf"": ""2.16.1"", ""gpus"": [""/physical_device:GPU:0""], ""matmul"": 33604668.0}"
+tensorflow/tensorflow:latest-gpu,tf,310,3815,12.3,ok,ok,,,,,no-gpu-visible,"{""tf"": ""2.21.0"", ""gpus"": []}"
+nvcr.io/nvidia/pytorch:22.12-py3,torch,739,8576,11.8,ok,ok,,,,ok,,"{""torch"": ""1.14.0a0+410ce96"", ""cuda"": ""11.8"", ""avail"": true, ""cudnn"": 8700, ""dev"": ""NVIDIA GeForce RTX 3050 Ti Laptop GPU"", ""cap"": ""8.6"", ""matmul"": 33537638.0}"
+nvcr.io/nvidia/pytorch:24.05-py3,torch,741,9205,12.4,ok,ok,,,,ok,,"{""torch"": ""2.4.0a0+07cecf4168.nv24.05"", ""cuda"": ""12.4"", ""avail"": true, ""cudnn"": 90100, ""dev"": ""NVIDIA GeForce RTX 3050 Ti Laptop GPU"", ""cap"": ""8.6"", ""matmul"": 33627476.0}"
+nvcr.io/nvidia/pytorch:25.06-py3,torch,1091,13723,12.9,ok,ok,,,,ok,,"{""torch"": ""2.8.0a0+5228986c39.nv25.06"", ""cuda"": ""12.9"", ""avail"": true, ""cudnn"": 91002, ""dev"": ""NVIDIA GeForce RTX 3050 Ti Laptop GPU"", ""cap"": ""8.6"", ""matmul"": 33571208.0}"
+vllm/vllm-openai:v0.6.3,vllm,411,5439,,ok,ok,,,,ok,,"{""torch"": ""2.4.0+cu121"", ""cuda"": ""12.1"", ""avail"": true, ""cudnn"": 90100, ""dev"": ""NVIDIA GeForce RTX 3050 Ti Laptop GPU"", ""cap"": ""8.6"", ""matmul"": 33538318.0}"
+ollama/ollama:latest,ollama,206,3273,,ok,ok,,,,,,"time=2026-07-19T02:04:02.151Z level=INFO source=routes.go:2054 msg=""vram-based default context"" total_vram=""4.0 GiB"" default_num_ctx=4096"
+tensorflow/tensorflow:2.4.3-gpu,tf,217,2533,11.0,ok,ok,,,,,ok,"{""tf"": ""2.4.3"", ""gpus"": [""/physical_device:GPU:0""], ""matmul"": 33542556.0}"
+nvidia/cuda:12.6.3-devel-ubuntu24.04+norequire,cuda-devel,279,,12.6,ok,ok,other,other,other,,,
+nvidia/cuda:12.8.1-devel-ubuntu24.04+norequire,cuda-devel,361,,12.8,ok,ok,other,other,other,,,
+nvidia/cuda:12.9.1-devel-ubuntu24.04+norequire,cuda-devel,418,,12.9,ok,ok,other,other,other,,,
+nvidia/cuda:13.0.1-devel-ubuntu24.04+norequire,cuda-devel,279,,13.0,ok,ok,other,other,other,,,

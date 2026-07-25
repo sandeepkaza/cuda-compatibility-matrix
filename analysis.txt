@@ -1,0 +1,128 @@
+======================================================================
+A. RQ1 — MATRIX REALITY
+======================================================================
+
+nvidia/cuda structured tags: 1760
+tags per CUDA minor: {'11.0': 35, '11.1': 35, '11.2': 35, '11.3': 35, '11.4': 30, '11.5': 30, '11.6': 55, '11.7': 35, '11.8': 35, '12.0': 80, '12.1': 83, '12.2': 64, '12.3': 88, '12.4': 54, '12.5': 51, '12.6': 164, '12.8': 132, '12.9': 162, '13.0': 226, '13.1': 141, '13.2': 128, '13.3': 62}
+distinct OS bases per CUDA minor: {'11.0': 7, '11.1': 7, '11.2': 7, '11.3': 7, '11.4': 6, '11.5': 6, '11.6': 6, '11.7': 7, '11.8': 7, '12.0': 9, '12.1': 9, '12.2': 8, '12.3': 8, '12.4': 8, '12.5': 7, '12.6': 9, '12.8': 11, '12.9': 12, '13.0': 14, '13.1': 13, '13.2': 14, '13.3': 14}
+
+CUDA minor lifespan on Docker Hub (first push -> last push, days):
+  11.0: 542d, last activity 2023-11-21
+  11.1: 531d, last activity 2023-11-10
+  11.2: 537d, last activity 2023-11-10
+  11.3: 548d, last activity 2023-11-21
+  11.4: 571d, last activity 2023-11-21
+  11.5: 339d, last activity 2023-11-21
+  11.6: 339d, last activity 2023-11-21
+  11.7: 327d, last activity 2023-11-10
+  11.8: 280d, last activity 2023-11-10
+  12.0: 257d, last activity 2023-11-21
+  12.1: 253d, last activity 2023-11-22
+  12.2: 11d, last activity 2023-11-21
+  12.3: 111d, last activity 2024-02-28
+  12.4: 18d, last activity 2024-04-24
+  12.5: 42d, last activity 2024-07-13
+  12.6: 112d, last activity 2024-12-03
+  12.8: 458d, last activity 2026-04-30
+  12.9: 377d, last activity 2026-05-20
+  13.0: 248d, last activity 2026-04-14
+  13.1: 139d, last activity 2026-05-01
+  13.2: 34d, last activity 2026-04-20
+  13.3: 0d, last activity 2026-06-03
+
+pytorch/pytorch structured tags: 168
+framework versions with >1 CUDA build: 24/45
+distinct CUDA versions across pytorch images: ['10.0', '10.1', '10.2', '11.0', '11.1', '11.3', '11.6', '11.7', '11.8', '12.1', '12.4', '12.6', '12.8', '12.9', '13.0', '13.2']
+
+NGC pytorch release notes: 96 releases with CUDA version
+  CUDA minor bumps across 96 monthlies: 25
+  months between CUDA minor bumps: med 4.0, mean 3.8
+  distinct min-driver requirements: 25
+
+NGC tensorflow release notes: 58 releases with CUDA version
+  CUDA minor bumps across 58 monthlies: 17
+  months between CUDA minor bumps: med 4.0, mean 3.4
+  distinct min-driver requirements: 18
+
+torch releases with nvidia-* wheel pins: 25 (of 49)
+exact cudnn pins: 25 torch versions, 7 distinct cudnn versions
+torch: 49 releases, med gap 49.0d
+tensorflow: 138 releases, med gap 12d
+vllm: 92 releases, med gap 10d
+
+======================================================================
+B. RQ3 — STALENESS
+======================================================================
+nvidia_cuda: 1784 tags, median age 591d, >1y old: 60.8%
+pytorch_pytorch: 180 tags, median age 772d, >1y old: 73.3%
+tensorflow_tensorflow: 1201 tags, median age 2531d, >1y old: 97.7%
+ollama_ollama: 1077 tags, median age 317d, >1y old: 44.9%
+vllm_vllm-openai: 485 tags, median age 80d, >1y old: 10.3%
+
+======================================================================
+C. RQ4 — PRACTITIONER PAIN
+======================================================================
+
+repo                               total cuda_err no_kimg fwd_cmp mismatch err_share
+pytorch/pytorch                    59859     3801      97      63     1740      6.3%
+tensorflow/tensorflow              41583     1934      14      45      757      4.7%
+vllm-project/vllm                  16636     1548      90      28      432      9.3%
+ggml-org/llama.cpp                  9049      607       8      13      143      6.7%
+NVIDIA/nvidia-container-toolkit      687       92       3      11       14     13.4%
+ollama/ollama                      10777      523      12       7      100      4.9%
+
+NOTE: 'cuda_version'/'driver_version'/'cudnn' counts are inflated by issue-template env dumps (collect_env) — report as mention-rate only, use cuda_error/no_kernel_image/forward_compat as the pain signal.
+
+issue details: 8335
+  pytorch/pytorch: 1881 fetched, open 35.0%, time-to-close med 10d (p90 150d)
+  tensorflow/tensorflow: 1945 fetched, open 27.4%, time-to-close med 20d (p90 377d)
+  vllm-project/vllm: 1820 fetched, open 33.9%, time-to-close med 27d (p90 152d)
+  ggml-org/llama.cpp: 1404 fetched, open 8.5%, time-to-close med 11d (p90 78d)
+  NVIDIA/nvidia-container-toolkit: 239 fetched, open 1.7%, time-to-close med 516d (p90 1367d)
+  ollama/ollama: 1046 fetched, open 13.4%, time-to-close med 10d (p90 131d)
+
+======================================================================
+D. RQ2 — SMOKE (partial until battery completes)
+======================================================================
+images tested: 41
+  nvidia/cuda:12.4.1-devel-ubuntu22.04: {'t1_smi': 'ok', 't2_libs': 'ok', 't3_nvcc_default': 'ok', 't4_nvcc_sm86': 'ok', 't5_ptx_jit': 'ok'}
+  nvidia/cuda:11.0.3-devel-ubuntu20.04: {'t1_smi': 'ok', 't2_libs': 'ok', 't3_nvcc_default': 'ok', 't4_nvcc_sm86': 'other', 't5_ptx_jit': 'ok'}
+  nvidia/cuda:11.2.2-devel-ubuntu20.04: {'t1_smi': 'ok', 't2_libs': 'ok', 't3_nvcc_default': 'ok', 't4_nvcc_sm86': 'ok', 't5_ptx_jit': 'ok'}
+  nvidia/cuda:11.4.3-devel-ubuntu20.04: {'t1_smi': 'ok', 't2_libs': 'ok', 't3_nvcc_default': 'ok', 't4_nvcc_sm86': 'ok', 't5_ptx_jit': 'ok'}
+  nvidia/cuda:11.6.2-devel-ubuntu20.04: {'t1_smi': 'ok', 't2_libs': 'ok', 't3_nvcc_default': 'ok', 't4_nvcc_sm86': 'ok', 't5_ptx_jit': 'ok'}
+  nvidia/cuda:11.8.0-devel-ubuntu22.04: {'t1_smi': 'ok', 't2_libs': 'ok', 't3_nvcc_default': 'ok', 't4_nvcc_sm86': 'ok', 't5_ptx_jit': 'ok'}
+  nvidia/cuda:12.0.1-devel-ubuntu22.04: {'t1_smi': 'ok', 't2_libs': 'ok', 't3_nvcc_default': 'ok', 't4_nvcc_sm86': 'ok', 't5_ptx_jit': 'ok'}
+  nvidia/cuda:12.1.1-devel-ubuntu22.04: {'t1_smi': 'ok', 't2_libs': 'ok', 't3_nvcc_default': 'ok', 't4_nvcc_sm86': 'ok', 't5_ptx_jit': 'ok'}
+  nvidia/cuda:12.2.2-devel-ubuntu22.04: {'t1_smi': 'ok', 't2_libs': 'ok', 't3_nvcc_default': 'ok', 't4_nvcc_sm86': 'ok', 't5_ptx_jit': 'ok'}
+  nvidia/cuda:12.3.2-devel-ubuntu22.04: {'t1_smi': 'ok', 't2_libs': 'ok', 't3_nvcc_default': 'ok', 't4_nvcc_sm86': 'ok', 't5_ptx_jit': 'ok'}
+  nvidia/cuda:12.5.1-devel-ubuntu22.04: {'t1_smi': 'ok', 't2_libs': 'ok', 't3_nvcc_default': 'ok', 't4_nvcc_sm86': 'ok', 't5_ptx_jit': 'ok'}
+  nvidia/cuda:12.6.3-devel-ubuntu24.04: {'t1_smi': 'other', 't2_libs': 'other', 't3_nvcc_default': 'other', 't4_nvcc_sm86': 'other', 't5_ptx_jit': 'other'}
+  nvidia/cuda:12.8.1-devel-ubuntu24.04: {'t1_smi': 'other', 't2_libs': 'other', 't3_nvcc_default': 'other', 't4_nvcc_sm86': 'other', 't5_ptx_jit': 'other'}
+  nvidia/cuda:12.9.1-devel-ubuntu24.04: {'t1_smi': 'other', 't2_libs': 'other', 't3_nvcc_default': 'other', 't4_nvcc_sm86': 'other', 't5_ptx_jit': 'other'}
+  nvidia/cuda:13.0.1-devel-ubuntu24.04: {'t1_smi': 'other', 't2_libs': 'other', 't3_nvcc_default': 'other', 't4_nvcc_sm86': 'other', 't5_ptx_jit': 'other'}
+  pytorch/pytorch:1.8.1-cuda11.1-cudnn8-runtime: {'t1_smi': 'ok', 't2_libs': 'ok', 't6_torch': 'ok'}
+  pytorch/pytorch:1.11.0-cuda11.3-cudnn8-runtime: {'t1_smi': 'ok', 't2_libs': 'ok', 't6_torch': 'ok'}
+  pytorch/pytorch:1.13.1-cuda11.6-cudnn8-runtime: {'t1_smi': 'ok', 't2_libs': 'ok', 't6_torch': 'ok'}
+  pytorch/pytorch:2.0.1-cuda11.7-cudnn8-runtime: {'t1_smi': 'ok', 't2_libs': 'ok', 't6_torch': 'ok'}
+  pytorch/pytorch:2.1.2-cuda12.1-cudnn8-runtime: {'t1_smi': 'ok', 't2_libs': 'ok', 't6_torch': 'ok'}
+  pytorch/pytorch:2.3.1-cuda12.1-cudnn8-runtime: {'t1_smi': 'ok', 't2_libs': 'ok', 't6_torch': 'ok'}
+  pytorch/pytorch:2.4.1-cuda12.4-cudnn9-runtime: {'t1_smi': 'ok', 't2_libs': 'ok', 't6_torch': 'ok'}
+  pytorch/pytorch:2.5.1-cuda12.4-cudnn9-runtime: {'t1_smi': 'ok', 't2_libs': 'ok', 't6_torch': 'ok'}
+  pytorch/pytorch:2.6.0-cuda12.6-cudnn9-runtime: {'t1_smi': 'ok', 't2_libs': 'ok', 't6_torch': 'ok'}
+  pytorch/pytorch:2.7.1-cuda12.8-cudnn9-runtime: {'t1_smi': 'ok', 't2_libs': 'ok', 't6_torch': 'ok'}
+  tensorflow/tensorflow:2.4.4-gpu: {'t1_smi': 'other'}
+  tensorflow/tensorflow:2.9.3-gpu: {'t1_smi': 'ok', 't2_libs': 'ok', 't7_tf': 'ok'}
+  tensorflow/tensorflow:2.12.0-gpu: {'t1_smi': 'ok', 't2_libs': 'ok', 't7_tf': 'ok'}
+  tensorflow/tensorflow:2.15.0-gpu: {'t1_smi': 'ok', 't2_libs': 'ok', 't7_tf': 'ok'}
+  tensorflow/tensorflow:2.16.1-gpu: {'t1_smi': 'ok', 't2_libs': 'ok', 't7_tf': 'ok'}
+  tensorflow/tensorflow:latest-gpu: {'t1_smi': 'ok', 't2_libs': 'ok', 't7_tf': 'no-gpu-visible'}
+  nvcr.io/nvidia/pytorch:22.12-py3: {'t1_smi': 'ok', 't2_libs': 'ok', 't6_torch': 'ok'}
+  nvcr.io/nvidia/pytorch:24.05-py3: {'t1_smi': 'ok', 't2_libs': 'ok', 't6_torch': 'ok'}
+  nvcr.io/nvidia/pytorch:25.06-py3: {'t1_smi': 'ok', 't2_libs': 'ok', 't6_torch': 'ok'}
+  vllm/vllm-openai:v0.6.3: {'t1_smi': 'ok', 't2_libs': 'ok', 't6_torch': 'ok'}
+  ollama/ollama:latest: {'t1_smi': 'ok', 't2_libs': 'ok'}
+  tensorflow/tensorflow:2.4.3-gpu: {'t1_smi': 'ok', 't2_libs': 'ok', 't7_tf': 'ok'}
+  nvidia/cuda:12.6.3-devel-ubuntu24.04+norequire: {'t1_smi': 'ok', 't2_libs': 'ok', 't3_nvcc_default': 'other', 't4_nvcc_sm86': 'other', 't5_ptx_jit': 'other'}
+  nvidia/cuda:12.8.1-devel-ubuntu24.04+norequire: {'t1_smi': 'ok', 't2_libs': 'ok', 't3_nvcc_default': 'other', 't4_nvcc_sm86': 'other', 't5_ptx_jit': 'other'}
+  nvidia/cuda:12.9.1-devel-ubuntu24.04+norequire: {'t1_smi': 'ok', 't2_libs': 'ok', 't3_nvcc_default': 'other', 't4_nvcc_sm86': 'other', 't5_ptx_jit': 'other'}
+  nvidia/cuda:13.0.1-devel-ubuntu24.04+norequire: {'t1_smi': 'ok', 't2_libs': 'ok', 't3_nvcc_default': 'other', 't4_nvcc_sm86': 'other', 't5_ptx_jit': 'other'}

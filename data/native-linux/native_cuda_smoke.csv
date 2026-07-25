@@ -1,0 +1,12 @@
+img,mode,start,run
+12.6.3,normal,PULLFAIL,-
+12.8.1,normal,STARTED,SYNC=no error rc=0 
+12.8.1,bypass,STARTED,SYNC=no error rc=0 
+13.0.1,normal,STARTED,SYNC=no error rc=0 
+13.0.1,bypass,STARTED,SYNC=no error rc=0 
+13.1.1,normal,STARTED,SYNC=forward compatibility was attempted on non supported HW rc=1 
+13.1.1,bypass,STARTED,SYNC=forward compatibility was attempted on non supported HW rc=1 
+13.2.1,normal,STARTED,SYNC=no error rc=0 
+13.2.1,bypass,STARTED,SYNC=no error rc=0 
+13.3.0,normal,STARTED,SYNC=no error rc=0 
+13.3.0,bypass,STARTED,SYNC=no error rc=0 
