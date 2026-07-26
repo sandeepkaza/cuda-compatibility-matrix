@@ -46,9 +46,16 @@ median practitioner machine, not a fresh install.
 | ollama/ollama | 1,077 | 317 | 44.9% |
 | vllm/vllm-openai | 485 | 80 | 10.3% |
 
-TensorFlow's Docker Hub GPU line is effectively abandoned (median tag ~7y);
-the active distribution moved elsewhere — while the tags remain pullable,
-a compat trap for newcomers.
+TensorFlow's Docker Hub GPU line is by far the stalest measured (median tag
+~7y, 97.7% >1y). **Do NOT call it abandoned** — checked 2026-07-26 against
+https://www.tensorflow.org/install/docker: there is NO deprecation notice, Docker
+is still presented as the recommended way to run TF on a GPU, and
+`tensorflow/tensorflow:latest-gpu` is still the image named. So the honest claim
+is publishing staleness, not abandonment, and not "distribution moved elsewhere".
+The sharper finding: the officially recommended tag is simultaneously the stalest
+in the sample AND (per RQ2) silently falls back to CPU on driver 555.97.
+Docker Hub push activity and a vendor's stated support policy are different
+things; only the former is measured here.
 
 ## RQ4 — Practitioner pain (GitHub issues, 6 repos, 138,591 total issues)
 
@@ -129,19 +136,30 @@ Details:
   scope excluded on 4GB — Paper 8 territory).
 
 ## Threats / integrity notes
-- Single GPU, single driver version: RQ2 is one measured point (the design
-  argument: it is the *typical* point — mid-life driver, consumer Ampere).
-- WSL2 backend: the ≥12.6 segfault should be replicated on native Linux
-  before claiming universality (cudaMallocManaged path differs on WSL2);
-  the ≤12.5 pass / ≥12.6 fail contrast on the SAME stack stands regardless.
+- ~~Single GPU, single driver version~~ → RESOLVED 2026-07-24: the native-Linux
+  leg added a SECOND driver point (RTX 3070, driver 580.95), which showed the
+  admission cliff moves with the driver. Both points are still consumer
+  Ampere-class, so datacenter cards (where CUDA forward compat IS supported)
+  remain untested — that is the honest residual scope limit.
+- ~~WSL2 backend: the ≥12.6 segfault should be replicated on native Linux
+  before claiming universality~~ → RESOLVED 2026-07-24 by the replication below.
+  Native CUDA returns a clean named error ("forward compatibility was attempted
+  on non supported HW", rc=1) for the same impossible situation that segfaults
+  silently (rc=139) under WSL2. So the SILENT-SEGFAULT PRESENTATION is
+  WSL2-specific; the underlying incompatibility is not. Do NOT state the
+  segfault as a universal property — paper.tex now scopes it in the abstract,
+  C2, RQ2 body, threats and conclusion. The ≤12.5 pass / ≥12.6 fail contrast on
+  the SAME stack stands regardless.
 - Docker Hub search-count style metrics avoided entirely; only tag metadata.
 - GitHub search API total_counts are approximate (GitHub-documented); shares
   reported at the precision GitHub returns.
 - NGC release-notes parsing: framework_version field extracted for only
   41/96 pytorch pages (format drift) — cuda + driver fields near-complete
   (96/96, 88/96); cudnn column noisy, re-extract before citing.
-- tensorflow/tensorflow "abandonment" claim: verify official TF docs moved
-  GPU distribution (pip/DockerHub policy change) before wording as such.
+- tensorflow/tensorflow "abandonment" claim: RESOLVED 2026-07-26. Official TF
+  docs show NO deprecation of the Docker GPU path — it is still recommended and
+  still names latest-gpu. The abandonment wording was WRONG and has been removed
+  from paper.tex and this file; we now claim measured publishing staleness only.
 
 ## NATIVE-LINUX REPLICATION (added 2026-07-24) — resolves WSL2 + single-driver caveats
 
