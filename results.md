@@ -20,7 +20,7 @@ median practitioner machine, not a fresh install.
 - **Combinatorial growth**: tags per CUDA minor rose 35 (11.0) → 226 (13.0);
   distinct OS bases per minor **7 → 14** across the same span.
 - **Publication window per CUDA minor collapsed mid-12.x**: 11.0–11.4 tags
-  span 542–571 days of pushes; 12.2 spans 11d, 12.4 18d, 12.5 42d — then
+  span 531–571 days of pushes; 12.2 spans 11d, 12.4 18d, 12.5 42d — then
   12.8 (458d) and 12.9 (377d) become the new long-lived lines. (Long 11.x
   spans partly reflect batch re-pushes ending 2023-11; state as observed
   push-activity windows, not support commitments.)
